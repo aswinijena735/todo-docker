@@ -1,0 +1,19 @@
+name: Docker CI
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  builds:
+    runs-on: ubntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/chechout@v3
+
+      - name: Build Docker image
+        run: docker build -t todo-app
+
+      - name: Run container test
+        run: echo "Build succesful!"
